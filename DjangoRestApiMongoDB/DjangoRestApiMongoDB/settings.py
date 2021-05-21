@@ -55,10 +55,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8081',
-)
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'DjangoRestApiMongoDB.urls'
 
@@ -88,8 +85,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'bezkoder_db',
-        'HOST': '127.0.0.1',
-        'PORT': 27017,
+        'CLIENT': {
+           'host': 'mongo-service',
+           'port': 27017,
+        }
     }
 }
 
